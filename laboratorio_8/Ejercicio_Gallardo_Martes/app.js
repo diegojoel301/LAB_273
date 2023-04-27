@@ -27,7 +27,7 @@ app.post("/", (req, res) => {
 
     // current year
     let year = date_ob.getFullYear();
-/*
+
     // current hours
     let hours = date_ob.getHours();
 
@@ -38,14 +38,14 @@ app.post("/", (req, res) => {
     let seconds = date_ob.getSeconds();
 
     // prints date in YYYY-MM-DD format
-*/
+
     preguntas = "Pregunta 1: " + req.body.pregunta_1 + "\n" +
                 "Pregunta 2: " + req.body.pregunta_2 + "\n" +
                 "Pregunta 3: " + req.body.pregunta_3 + "\n" +
                 "Pregunta 4: " + req.body.pregunta_4 + "\n" +
                 "Pregunta 5: " + req.body.pregunta_5;
     
-    fs.writeFile("encuesta" + year + "-" + month + "-" + date + "", preguntas, 'utf8', function (err) {
+    fs.writeFile("encuesta" + year + "-" + month + "-" + date + "-" + hours + minutes + seconds, preguntas, 'utf8', function (err) {
         if (err) {
             console.log("An error occured while writing JSON Object to File.");
             return console.log(err);
